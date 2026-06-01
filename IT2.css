@@ -1,0 +1,93 @@
+﻿/* Globale Einstellungen */
+body, html{
+    margin: 0; 
+    padding: 0;
+    background-color: #0d0d12;
+    color: #e0e0e0;
+    font-family: sans-serif;
+}
+
+header {
+    text-align: center; /* Zentriert den Text im Kopfbereich */
+    padding: 2rem 1rem; /* Innenabstand vom Text im Bezug auf den Bildschirmrand */
+}
+
+    header h1 {
+        margin: 0; /* Außenabstand vom HTML-Element wird definiert */
+        font-size: 2.5rem; /* Schriftgröße wird definiert */
+        color: #6c5ce7;
+    }
+
+main {
+    display: flex;
+    justify-content: center; /* Zentriert den Kasten horizontal auf der Seite */
+    padding: 2rem;
+}
+footer {
+    background: #1a1a24; /* Leicht heller als der tiefdunkle Hintergrund */
+    border-top: 2px solid #2a2a4a; /* Dezente Trennlinie nach oben */
+    color: #888;
+    padding: 2rem 1rem;
+    margin-top: 40px; /* Abstand zum Hauptbereich */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    max-width: 800px; /* Gleiche Breite wie das Spiel für ein sauberes Layout */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* --- DER LILA RAHMEN --- */
+#game-wrapper {
+    position: relative; /* WICHTIG! Das ist der Anker für die absolute Positionierung der Schichten! */
+    width: 800px;
+    height: 400px;
+    border: 3px solid #6c5ce7;
+    border-radius: 12px; /* Abgerundete Ecken des Kastens */
+    overflow: hidden; /* Schneidet die Canvas-Ecken ab */
+    background-color: #000;
+}
+
+/* --- SCHICHT 1: DAS CANVAS --- */
+#canvas-container {
+    position: absolute; /* Absolut positioniert innerhalb des game-wrapper */
+    top: 0;
+    left: 0;
+    width: 100%; /* Füllt die gesamte Breite des game-wrapper */
+    height: 100%; /* Füllt die gesamte Höhe des game-wrapper */
+    z-index: 1; /* Liegt unter dem UI, damit die Steuerelemente immer sichtbar sind */
+}
+
+    /* p5.js Canvas Anpassung */
+    #canvas-container canvas {
+        display: block;
+    }
+
+/* --- SCHICHT 2: DAS UI --- */
+#ui-container {
+    position: absolute; 
+    top: 15px;
+    left: 15px;
+    background: rgba(15, 15, 25, 0.85);
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 20; /* Liegt über dem Canvas */
+}
+
+.control-group {
+    margin-bottom: 10px;
+}
+
+    .control-group label {
+        display: block;
+        font-size: 13px;
+        color: #ccc;
+    }
+
